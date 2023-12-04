@@ -1,0 +1,57 @@
+h1 {
+    font-family: helvetica, arial, sans-serif;
+    text-align: center;
+  }
+
+  h2 {
+    font-family: helvetica, arial, sans-serif;
+    text-align: center;
+  }
+  
+  body {
+    width: 640px;
+    margin: 0 auto;
+  }
+  
+  .full-img {
+    position: relative;
+    display: block;
+    width: 640px;
+    height: 640px;
+  }
+  
+
+  .selectLeague {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-bottom: 20px;
+  }
+  
+  .displaySTeamName{
+    text-align:center;
+  }
+
+  .displayPTeamName{
+    text-align:center;
+  }
+
+  .site {
+    position: relative; /* absolute から relative に変更 */
+    margin-top: 200px; /* 余白を追加して下方向に調整 */
+    text-align: center; /* 中央揃え */
+  }
+  
+  
+  .thumb-bar {
+    margin-top: 100px;
+  }
+  
+  .thumb-bar img {
+    display: block;
+    width: 16.6%;
+    float: left;
+    cursor: pointer;
+    position: relative; /* 追加: 相対位置指定 */
+    top: 120px;
+  }
