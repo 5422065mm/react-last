@@ -41,7 +41,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Explain the Baseball Teams</h1>
+      <h1>Introduce The BaseBall Teams</h1>
       <div className="selectLeague">
         <label htmlFor="セ・リーグ">セ・リーグ</label>
         <input onChange={changeLeague} type="radio" value="セ・リーグ" checked={league === "セ・リーグ"} />
