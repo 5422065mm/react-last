@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
 
 export default function App() {
   const Simages = [
@@ -39,6 +40,23 @@ export default function App() {
     setLeague(event.target.value);
   }
 
+  const [qrCode, setQrCode] = useState("");
+
+  useEffect(() => {
+    const generateQrCode = async () => {
+      try {
+        const text = "https://portal.educ.chs.nihon-u.ac.jp/";
+        const size = 80;
+        const response = await fetch(`https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(text)}&size=${size}x${size}`);
+        setQrCode(response.url);
+      } catch (error) {
+        console.error("Error generating QR code:", error);
+      }
+    };
+
+    generateQrCode();
+  }, []);
+
   return (
     <>
       <h1>Introduce The BaseBall Teams</h1>
@@ -49,6 +67,11 @@ export default function App() {
         <input onChange={changeLeague} type="radio" value="パ・リーグ" checked={league === "パ・リーグ"} />
       </div>
       <h2>＜球団ロゴ＞</h2>
+
+      <div className="qrcode">
+        {qrCode && <img src={qrCode} alt="作成者" />}
+      </div>
+
 
       {league == "セ・リーグ" && (
         <>
@@ -109,8 +132,8 @@ export default function App() {
               <p>製作者：村松南斗</p>
               <p>学籍番号：5422065</p>
               <p>画像の引用元（球団ロゴ）</p>
-            
-            
+
+
               <p><a href="https://npb.jp/pl/">パ・リーグ公式サイト</a></p>
 
 
